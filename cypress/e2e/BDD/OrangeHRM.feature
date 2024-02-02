@@ -1,7 +1,5 @@
 Feature: Ecommerce Site - Orange HRM
 
-
-
     Scenario: Login with Valid Credentials
         Given Visit Orange HRM site
         When Enter Username and Password
