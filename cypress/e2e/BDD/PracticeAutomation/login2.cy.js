@@ -22,3 +22,8 @@ And("click on singin button", () => {
 Then("Dashboard should be visible", () => {
     cy.get('.is-active > a').should('have.text', 'Dashboard')
 })
+
+When('User log-in with {string} and {string}', (username, password)=> {
+    cy.get('#username').type(username)
+    cy.get('#password').type(password)
+})

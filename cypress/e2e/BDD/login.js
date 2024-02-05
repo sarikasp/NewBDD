@@ -20,3 +20,11 @@
 // futureDate = futureDate.toLocaleString('en_US')
 // cy.get('element').clear().type(futureDate)
 
+
+
+
+let firstName = "sarika"
+let lastname= "Pansare"
+
+
+console.log(`My name is ${firstName} and my lastName ${lastname}`)
