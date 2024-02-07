@@ -24,7 +24,7 @@ Then("Dashboard should be visible", () => {
 })
 
 When('User log-in with {string} and {string}', (username, password)=> {
-    
+    // sarika@test.com  // @Minskole12 // ['sarika', 'test.com']
     user =  username.split('@')[0]
     cy.log(user)
     cy.get('#username').type(username)
