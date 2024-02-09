@@ -34,7 +34,8 @@ When("Place order and select country", () => {
 
 
 
-When("Validate the Thank you message", () => {
+Then("Validate the Thank you message", () => {
     cy.contains("Thank you, your order has been placed successfully You'll be redirected to Home page shortly!!").should('be.visible')
 })
 
+// Thank you, your order has been placed successfully You'll be redirected to Home page shortly!!
