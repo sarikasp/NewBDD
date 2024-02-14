@@ -4,7 +4,8 @@ import HomePage from "../home"
 let selector = new HomePage
 
 Given("Open E-Commerce Sites", () => {
-    selector.VisitUrl()
+    selector.VisitUrl(selector.selector.EcommUrl)
+    
 })
 
 When("Search products which is start from {string}", (value) => {

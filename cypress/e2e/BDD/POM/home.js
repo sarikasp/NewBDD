@@ -1,6 +1,8 @@
 class HomePage{
 
     selector = {
+
+        // Rahul Shetty
        EcommUrl: "https://rahulshettyacademy.com/seleniumPractise/#/",  
        searchProductBox : ".search-keyword",
        searchBtn : '[class="search-button"]',
@@ -10,13 +12,22 @@ class HomePage{
       proceedToChkBtn : '[class="action-block"] >  button',
       countryLst : 'select',
       checkBox :'.chkAgree',
-      proceedBtn: 'button'
+      proceedBtn: 'button',
+
+
+      // Practice Automation
+      prcAuto: "https://automationexercise.com/",
+      login_singup: 'a[href="/login"]',
+      SignUpTxt: ".signup-form> h2",
+      signUpName: 'input[name="name"]',
+      signUpEMail: 'input[data-qa="signup-email"]',
+      signUpBtn: 'button[data-qa="signup-button"]'
 
     }
 
 
-    VisitUrl(){
-        cy.visit(this.selector.EcommUrl)
+    VisitUrl(url){
+        cy.visit(url)
     }
 
     SearchProduct(value){
@@ -43,6 +54,20 @@ class HomePage{
         cy.get(this.selector.proceedBtn).click()
     }
 
+    ClickOnBtn(btn){
+        cy.get(btn).click()
+    }
+
+    ValidateText(element, value){
+        cy.get(element).should('have.text', value)
+    }
+
+    SignUpUser(){
+        cy.get(this.selector.signUpName).type('Sarika')
+        cy.get(this.selector.signUpEMail).type('Sarika.Minskole@test.com')
+        cy.get(this.selector.signUpBtn).click()
+        cy.contains('Enter Account Information').should('be.visible')
+    }
 
 }
 export default HomePage
