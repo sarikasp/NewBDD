@@ -23,8 +23,14 @@
 
 
 
-let firstName = "sarika"
-let lastname= "Pansare"
+// let firstName = "sarika"
+// let lastname= "Pansare"
 
 
-console.log(`My name is ${firstName} and my lastName ${lastname}`)
+// console.log(`My name is ${firstName} and my lastName ${lastname}`)
+
+
+// num = (Math.random()) * 20
+// console.log(num)
+let email =`${(Math.random()) * 20}Sarika.Minskole@test.com` 
+console.log(email)

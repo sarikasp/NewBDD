@@ -21,8 +21,25 @@ class HomePage{
       SignUpTxt: ".signup-form> h2",
       signUpName: 'input[name="name"]',
       signUpEMail: 'input[data-qa="signup-email"]',
-      signUpBtn: 'button[data-qa="signup-button"]'
-
+      signUpBtn: 'button[data-qa="signup-button"]',
+      mrsBtn: '#id_gender2',
+      password: '#password',
+      days: '#days',
+      months: '#months',
+      years: '#years',
+      newsletter : '#newsletter',
+      optin: '#optin',
+      first_Name:'#first_name',
+      last_Name: '#last_name',
+      company: '#company',
+      address: '#address1',
+      country: '#country',
+      state: '#state',
+      city:'#city',
+      zipcode: '#zipcode',
+      mobileNo: '#mobile_number',
+      createBtn: '[data-qa="create-account"]',
+      createAcMsg: '.title b'
     }
 
 
@@ -62,12 +79,34 @@ class HomePage{
         cy.get(element).should('have.text', value)
     }
 
-    SignUpUser(){
+    SignUpUser(email){
         cy.get(this.selector.signUpName).type('Sarika')
-        cy.get(this.selector.signUpEMail).type('Sarika.Minskole@test.com')
+        cy.get(this.selector.signUpEMail).type(email)
         cy.get(this.selector.signUpBtn).click()
         cy.contains('Enter Account Information').should('be.visible')
     }
 
+    CreateUser(){
+        cy.get(this.selector.mrsBtn).click()
+        cy.get(this.selector.password).type('@Minskole12')
+        cy.get(this.selector.days).select(9)
+        cy.get(this.selector.months).select('8')
+        cy.get(this.selector.years).select('1998')
+        cy.get(this.selector.newsletter).check()
+        cy.get(this.selector.optin).click()
+        cy.get(this.selector.first_Name).type('Sarika')
+        cy.get(this.selector.last_Name).type('Pansare')
+        cy.get(this.selector.company).type('Apexon')
+        cy.get(this.selector.address).type('KL, Malaysia')
+        cy.get(this.selector.country).select('India')
+        cy.get(this.selector.state).type('Maharashtra')
+        cy.get(this.selector.city).type('Nashik')
+        cy.get(this.selector.zipcode).type(422012)
+        cy.get(this.selector.mobileNo).type(4663597123)
+        cy.get(this.selector.createBtn).click()
+        cy.get(this.selector.createAcMsg).should('have.text', 'Account Created!')
+        cy.get('.title').next('p').should('have.text', 'Congratulations! Your new account has been successfully created!')
+    }
+ 
 }
 export default HomePage
