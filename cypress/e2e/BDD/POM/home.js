@@ -39,7 +39,8 @@ class HomePage{
       zipcode: '#zipcode',
       mobileNo: '#mobile_number',
       createBtn: '[data-qa="create-account"]',
-      createAcMsg: '.title b'
+      createAcMsg: '.title b',
+      title: '.title'
     }
 
 
@@ -79,33 +80,38 @@ class HomePage{
         cy.get(element).should('have.text', value)
     }
 
-    SignUpUser(email){
-        cy.get(this.selector.signUpName).type('Sarika')
+    SignUpUser(name, email){
+        cy.get(this.selector.signUpName).type(name)
         cy.get(this.selector.signUpEMail).type(email)
         cy.get(this.selector.signUpBtn).click()
         cy.contains('Enter Account Information').should('be.visible')
     }
 
-    CreateUser(){
+    CreateUser(testData){
         cy.get(this.selector.mrsBtn).click()
-        cy.get(this.selector.password).type('@Minskole12')
-        cy.get(this.selector.days).select(9)
-        cy.get(this.selector.months).select('8')
-        cy.get(this.selector.years).select('1998')
+        cy.get(this.selector.password).type(testData.password)
+        cy.get(this.selector.days).select(testData.date)
+        cy.get(this.selector.months).select(testData.month)
+        cy.get(this.selector.years).select(testData.birthYear)
         cy.get(this.selector.newsletter).check()
         cy.get(this.selector.optin).click()
-        cy.get(this.selector.first_Name).type('Sarika')
-        cy.get(this.selector.last_Name).type('Pansare')
-        cy.get(this.selector.company).type('Apexon')
-        cy.get(this.selector.address).type('KL, Malaysia')
-        cy.get(this.selector.country).select('India')
-        cy.get(this.selector.state).type('Maharashtra')
-        cy.get(this.selector.city).type('Nashik')
-        cy.get(this.selector.zipcode).type(422012)
-        cy.get(this.selector.mobileNo).type(4663597123)
+        cy.get(this.selector.first_Name).type(testData.firstName)
+        cy.get(this.selector.last_Name).type(testData.lastName)
+        cy.get(this.selector.company).type(testData.company)
+        cy.get(this.selector.address).type(testData.address)
+        cy.get(this.selector.country).select(testData.country)
+        cy.get(this.selector.state).type(testData.state)
+        cy.get(this.selector.city).type(testData.city)
+        cy.get(this.selector.zipcode).type(testData.pincode)
+        cy.get(this.selector.mobileNo).type(testData.phoneNumber)
         cy.get(this.selector.createBtn).click()
         cy.get(this.selector.createAcMsg).should('have.text', 'Account Created!')
-        cy.get('.title').next('p').should('have.text', 'Congratulations! Your new account has been successfully created!')
+        cy.get(this.selector.title).next('p').should('have.text', 'Congratulations! Your new account has been successfully created!')
+    }
+
+    login(email,userData){
+        cy.get().type(email)
+        cy.get().type(userData.password)
     }
  
 }
