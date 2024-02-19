@@ -18,6 +18,7 @@ class HomePage{
       // Practice Automation
       prcAuto: "https://automationexercise.com/",
       login_singup: 'a[href="/login"]',
+      logoutBtn: 'a[href="/logout"]',
       SignUpTxt: ".signup-form> h2",
       signUpName: 'input[name="name"]',
       signUpEMail: 'input[data-qa="signup-email"]',
@@ -110,8 +111,10 @@ class HomePage{
     }
 
     login(email,userData){
-        cy.get().type(email)
-        cy.get().type(userData.password)
+        cy.get('[data-qa="login-email"]').type(email)
+        cy.get('[data-qa="login-password"]').type(userData.password)
+        cy.get('[data-qa="login-button"]').click()
+        cy.get('h1> span').first().should('have.text', 'Automation')
     }
  
 }

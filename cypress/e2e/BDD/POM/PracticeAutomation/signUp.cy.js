@@ -27,7 +27,8 @@ When("Fill the infomarton for create new User", () => {
 
 Then("Validates the User created message", () => {
     selector.ClickOnBtn(selector.selector.login_singup)
-    selector.ClickOnBtn(selector.selector.login_singup)
-    selector.login(email, userData.sarika)
-    
+    selector.ClickOnBtn(selector.selector.logoutBtn)
+    // selector.login(email, userData.sarika)
+    cy.login(email, userData.sarika)
+
 })
