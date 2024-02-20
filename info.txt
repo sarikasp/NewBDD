@@ -6,3 +6,13 @@ npx cypress open
 https://kailash-pathak.medium.com/cypress-13-integration-with-bdd-cucumber-pom-a367f534b363
 BDD:
 npm install --save-dev cypress-cucumber-preprocessor
+
+
+allure
+mocha awsome
+config
+
+
+npx cypress run
+
+https://www.npmjs.com/package/cypress-mochawesome-reporter
