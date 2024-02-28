@@ -16,7 +16,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
     includeShadowDom: true,
-    specPattern: "**/*.feature",
+    specPattern: ["**/*.feature", "**/*.cy.js"],
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
       on("file:preprocessor", cucumber());

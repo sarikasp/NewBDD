@@ -6,8 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+
+    "cypress-stage-test": "npx cypress run --headed --browser chrome --spec cypress/e2e/confgi/configEnv.cy.js --config-file stag.config.js",
+    "cypress-prod-test": "npx cypress run --headed --browser chrome --spec cypress/e2e/confgi/configEnv.cy.js --config-file prod.config.js"
+
   },
+
+  
   "author": "",
   "license": "ISC",
   "devDependencies": {
